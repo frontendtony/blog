@@ -3,3 +3,94 @@
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;
+
+@font-face {
+  font-family: 'SF Pro Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SF Pro Regular'), url('./fonts/SF-Pro-Text-Regular.woff');
+}
+
+html {
+  color: var(--textColor);
+  font-family: 'SF Pro Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+.layout {
+  background-color: var(--backgroundColor);
+}
+
+.container {
+  width: 90%;
+}
+
+.blog-title,
+.date-and-duration {
+  color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondaryBackgroundColor);
+}
+
+.theme-switch {
+  width: 44px;
+  height: 22px;
+  position: relative;
+  display: inline-block;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--backgroundColor);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 11px;
+}
+
+.theme-switch .slider::before {
+  position: absolute;
+  content: '';
+  height: 24px;
+  width: 24px;
+  bottom: 50%;
+  left: -2px;
+  background-color: var(--backgroundColor);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 50%;
+  transform: translate(0, 50%);
+  border: 1px solid var(--primary);
+  z-index: 2;
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translate(23px, 50%);
+}
+
+.toggle-image {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  transform: translateY(1px);
+}
+
+.toggle-image.dark {
+  left: 0.2rem;
+}
+
+.toggle-image.light {
+  right: 0.12rem;
+}
