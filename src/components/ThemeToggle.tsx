@@ -5,16 +5,16 @@ const themes = {
   dark: {
     primary: '#1ca086',
     textColor: 'white',
-    backgroundColor: '#0d1219',
-    secondaryBackgroundColor: '#1d3a48',
+    backgroundColor: '#1d3a48',
+    secondaryBackgroundColor: '#0d1219',
     blockquoteColor: 'rgba(255,255,255,0.20)',
     icon: 'white'
   },
   light: {
     primary: '#1ca086',
     textColor: 'black',
-    backgroundColor: '#EDF2F7',
-    secondaryBackgroundColor: '#cbdde4',
+    backgroundColor: '#cbdde4',
+    secondaryBackgroundColor: '#EDF2F7',
     blockquoteColor: 'rgba(0,0,0,0.80)',
     icon: '#0d1219'
   }

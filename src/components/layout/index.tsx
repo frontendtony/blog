@@ -4,7 +4,7 @@ import ThemeToggle from '../ThemeToggle';
 const Layout = ({ children }: { children: ReactElement }) => {
   return (
     <div className="min-h-screen layout">
-      <div className="flex items-center bg-secondary py-2 h-12">
+      <div className="flex items-center bg-secondary py-2 h-12 sticky top-0">
         <div className="flex items-center justify-between max-w-4xl mx-auto container">
           <div className="items-center flex">
             <img
@@ -21,7 +21,7 @@ const Layout = ({ children }: { children: ReactElement }) => {
           <ThemeToggle />
         </div>
       </div>
-      <div className="container mx-auto mt-10 max-w-4xl">{children}</div>
+      {children}
     </div>
   );
 };

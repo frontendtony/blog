@@ -1,4 +1,8 @@
-# Basics of Markdown
+---
+title: Basics of Markdown
+author: Anthony Oyathelemhi
+publishDate: '2020-02-16 17:38:00 +0100'
+---
 
 Markdown is the most popular markup language that can be used to format documents. It can be used to create _websites_,_ebooks_,_email_,_chats in discussions forums_.
 

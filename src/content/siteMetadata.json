@@ -1,0 +1,12 @@
+{
+  "title": "Frontend Tony",
+  "seoDefaultTitle": "Articles on frontend web development.",
+  "description": "Articles on frontend web development by Anthony Oyathelemhi.",
+  "siteUrl": "https://blog.frontendtony.com",
+  "keywords": "nextjs, react, css, javascript, html, git",
+  "social": {
+    "twitterHandle": "@frontendtony",
+    "twitter": "https://twitter.com/frontendtony",
+    "github": "https://github.com/frontendtony"
+  }
+}
