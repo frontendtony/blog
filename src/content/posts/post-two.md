@@ -1,7 +1,7 @@
 ---
-title: Basics of Markdown
+title: Basics of Markdown 2
 author: Anthony Oyathelemhi
-date: '2020-02-16 17:38:00 +0100'
+date: '2020-02-12 17:38:00 +0100'
 publishDate: '2020-02-16 17:38:00 +0100'
 ---
 
