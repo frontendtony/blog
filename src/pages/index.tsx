@@ -11,7 +11,7 @@ const BlogList = ({ blogList }) => {
     <ul className="mb-20 max-w-xl mx-auto list-none p-0">
       {blogList.map(blog => (
         <li className="mb-4 p-4 md:px-8 bg-secondary shadow-md" key={blog.title}>
-          <Link href={`/${blog.slug}`}>
+          <Link href="/[post]" as={`/${blog.slug}`}>
             <a className="no-underline">
               <h1 className="m-0">{blog.title}</h1>
               <p className="mb-0 md:mb-8 mt-0 text-sm text-primary">
