@@ -7,8 +7,8 @@ title: First blog post from forestry. This is just a test
 ---
 Creating a new blog post on forestry is just as easy as setting up a Github account
 
-\`\`\`ts
+\`\`\`js
 
-const isForestryConnected: boolean = true;
+const isForestryConnected = true;
 
 \`\`\`
