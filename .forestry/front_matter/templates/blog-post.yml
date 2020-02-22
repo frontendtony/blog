@@ -1,4 +1,35 @@
 ---
 label: Blog post
 hide_body: false
-fields: []
+fields:
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+- name: date
+  type: datetime
+  label: Date
+  description: ''
+  config:
+    required: false
+    date_format: DD/MM/YYYY
+    time_format: 
+    display_utc: false
+  default: now
+- name: publishDate
+  type: datetime
+  label: Publish date
+  description: ''
+  config:
+    required: false
+    date_format: DD/MM/YYYY
+    time_format: 
+    display_utc: false
+  default: now
+pages:
+- src/content/posts/first-blog-post-from-forestry-this-is-just-a-test.md
