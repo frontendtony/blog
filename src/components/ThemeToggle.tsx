@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ThemeObject } from '../interfaces';
 
 const themes = {
@@ -29,7 +29,7 @@ const setCSSVariables = (properties: ThemeObject) => {
 const ThemeToggle = () => {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const previouslySelectedTheme = localStorage.getItem('theme');
 
     // only update the theme if light theme was previously selected
@@ -38,7 +38,7 @@ const ThemeToggle = () => {
     }
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // remember the previous theme when the user visits the site
     localStorage.setItem('theme', theme);
 

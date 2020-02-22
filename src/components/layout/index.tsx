@@ -1,7 +1,7 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import ThemeToggle from '../ThemeToggle';
 
-const Layout = ({ children }: { children: ReactElement }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="min-h-screen layout">
       <div className="flex items-center bg-secondary py-2 h-12 sticky top-0">

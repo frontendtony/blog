@@ -5,15 +5,13 @@ import '../styles/index.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <Layout>
       <Head>
         <title>FrontendTony</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
 
