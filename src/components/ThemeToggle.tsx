@@ -1,52 +1,7 @@
-import { useEffect, useState } from 'react';
-import { ThemeObject } from '../interfaces';
-
-const themes = {
-  dark: {
-    primary: '#1ca086',
-    textColor: 'white',
-    backgroundColor: '#1d3a48',
-    secondaryBackgroundColor: '#0d1219',
-    blockquoteColor: 'rgba(255,255,255,0.20)',
-    icon: 'white'
-  },
-  light: {
-    primary: '#1ca086',
-    textColor: 'black',
-    backgroundColor: '#cbdde4',
-    secondaryBackgroundColor: '#EDF2F7',
-    blockquoteColor: 'rgba(0,0,0,0.80)',
-    icon: '#0d1219'
-  }
-};
-
-const setCSSVariables = (properties: ThemeObject) => {
-  for (const property in properties) {
-    document.documentElement.style.setProperty(`--${property}`, properties[property]);
-  }
-};
+import { useTheme } from '../context/Theme';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
-
-  useEffect(() => {
-    const previouslySelectedTheme = localStorage.getItem('theme');
-
-    // only update the theme if light theme was previously selected
-    if (previouslySelectedTheme === 'light') {
-      setTheme(previouslySelectedTheme);
-    }
-  }, []);
-
-  useEffect(() => {
-    // remember the previous theme when the user visits the site
-    localStorage.setItem('theme', theme);
-
-    // set the custom properties for use in styles
-    setCSSVariables(themes[theme]);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <label className="theme-switch">
