@@ -1,5 +1,5 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 interface Props {
   value: string;
@@ -10,7 +10,7 @@ const CodeBlock = (props: Props) => {
   const { language = 'javascript', value } = props;
 
   return (
-    <SyntaxHighlighter language={language} style={ghcolors} showLineNumbers>
+    <SyntaxHighlighter language={language} style={atomDark} showLineNumbers>
       {value}
     </SyntaxHighlighter>
   );
