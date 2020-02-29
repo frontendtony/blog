@@ -8,7 +8,7 @@ import { formatDate, formatExcerpt, orderPosts } from '../utils/blogHelpers';
 
 const BlogList = ({ blogList }) => {
   return (
-    <ul className="mb-20 max-w-xl mx-auto list-none p-0">
+    <ul className="mb-4 max-w-xl mx-auto list-none p-0">
       {blogList.map(blog => (
         <li className="mb-4 p-4 md:px-8 bg-secondary shadow-md" key={blog.title}>
           <Link href="/[post]" as={`/${blog.slug}`}>
