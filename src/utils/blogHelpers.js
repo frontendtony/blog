@@ -9,7 +9,7 @@ export function orderPosts(posts) {
   return posts.slice().sort(sortByDate);
 }
 
-export function formatExcerpt(content) {
+export function formatExcerpt(content, limit = 200) {
   const plainTextExcerpt = removeMarkdown(content, {
     stripListLeaders: true,
     listUnicodeChar: '',
@@ -17,7 +17,7 @@ export function formatExcerpt(content) {
     useImgAltText: false
   })
     .replace(/(\r\n|\n|\r)/gm, '')
-    .substring(0, 200)
+    .substring(0, limit)
     .trimEnd();
 
   return `${plainTextExcerpt}...`;
