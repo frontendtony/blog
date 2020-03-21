@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown/with-html';
 import readingTime from 'reading-time';
 import CodeBlock from '../components/CodeBlock';
 import Navbar from '../components/layout/Navbar';
-import { formatDate, formatExcerpt } from '../utils/blogHelpers';
+import { formatDate } from '../utils/blogHelpers';
 
 const Post = ({
   title,
@@ -15,7 +15,7 @@ const Post = ({
   tags,
   estimatedReadingTime,
   slug,
-  excerpt,
+  summary,
   siteMetadata
 }) => {
   return (
@@ -27,12 +27,12 @@ const Post = ({
         </Head>
         <NextSeo
           title={title}
-          description={excerpt}
+          description={summary}
           canonical={`https://blog.oghie.dev/${slug}`}
           openGraph={{
             url: `https://blog.oghie.dev/${slug}`,
             title: title,
-            description: excerpt,
+            description: summary,
             type: 'article',
             article: {
               publishedTime: date,
@@ -71,7 +71,7 @@ Post.getInitialProps = async ({ query }) => {
     publishDate: document.publishDate,
     tags: document.tags || [],
     slug: query.post,
-    excerpt: formatExcerpt(document.content, 155),
+    summary: document.summary,
     siteMetadata
   };
 };

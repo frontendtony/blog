@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React from 'react';
 import readingTime from 'reading-time';
 import ThemeToggle from '../components/ThemeToggle';
-import { formatDate, formatExcerpt, orderPosts } from '../utils/blogHelpers';
+import { formatDate, orderPosts } from '../utils/blogHelpers';
 
 const BlogList = ({ blogList }) => {
   return (
@@ -58,11 +58,11 @@ const BlogList = ({ blogList }) => {
           <li className="mb-4 md:mb-12 p-6 md:p-12 bg-secondary shadow-md" key={blog.title}>
             <Link href="/[post]" as={`/${blog.slug}`}>
               <a className="no-underline">
-                <h1 className="m-0 text-2xl md:text-3xl">{blog.title}</h1>
+                <h1 className="m-0 mb-2 text-2xl md:text-3xl">{blog.title}</h1>
                 <p className="mb-0 md:mb-8 mt-0 text-sm text-primary">
                   {formatDate(blog.date)} - {blog.estimatedReadingTime}
                 </p>
-                <p className="text-md">{blog.excerpt}</p>
+                <p className="text-md">{blog.summary}</p>
               </a>
             </Link>
           </li>
@@ -100,14 +100,12 @@ Home.getInitialProps = async () => {
       const value = values[index];
       // Parse frontmatter & markdownbody for the current file
       const document = matter(value.default);
-      // Extract part of the blog to use as summary
-      const excerpt = formatExcerpt(document.content);
       // return the .md content & pretty slug
       return {
         title: document.data.title,
         date: document.data.date,
+        summary: document.data.summary,
         estimatedReadingTime: readingTime(document.content).text,
-        excerpt,
         slug
       };
     });
