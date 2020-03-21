@@ -13,7 +13,7 @@ const BlogList = ({ blogList }) => {
       <div className="absolute right-0 mr-4 mt-2 md:mr-6">
         <ThemeToggle />
       </div>
-      <div className="flex flex-col items-center self-center px-4 mt-20 md:mt-40 mx-auto max-w-md">
+      <div className="flex flex-col items-center self-center px-4 mt-20 md:mt-40 mx-auto mb-8 max-w-md">
         <img
           src="/images/avatar.jpg"
           alt="Avatar of Anthony Oyathelemhi"
@@ -53,16 +53,16 @@ const BlogList = ({ blogList }) => {
           </a>
         </div>
       </div>
-      <ul className="mb-4 max-w-xl mx-auto list-none p-0">
+      <ul className="mb-4 max-w-3xl mx-auto list-none p-0">
         {blogList.map(blog => (
-          <li className="mb-4 p-4 md:px-8 bg-secondary shadow-md" key={blog.title}>
+          <li className="mb-4 md:mb-12 p-6 md:p-12 bg-secondary shadow-md" key={blog.title}>
             <Link href="/[post]" as={`/${blog.slug}`}>
               <a className="no-underline">
-                <h1 className="m-0">{blog.title}</h1>
+                <h1 className="m-0 text-2xl md:text-3xl">{blog.title}</h1>
                 <p className="mb-0 md:mb-8 mt-0 text-sm text-primary">
                   {formatDate(blog.date)} - {blog.estimatedReadingTime}
                 </p>
-                <p className="text-md hidden md:block">{blog.excerpt}</p>
+                <p className="text-md">{blog.excerpt}</p>
               </a>
             </Link>
           </li>
