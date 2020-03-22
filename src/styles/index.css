@@ -35,16 +35,10 @@ a {
   margin-bottom: 1.2rem;
 }
 
-.post-container h1 {
-  font-size: 3em;
-}
-
-.post-container h2 {
-  font-size: 2.25em;
-}
-
-.post-container h3 {
-  font-size: 1.875em;
+.post-container hr {
+  max-width: 128px;
+  opacity: 0.75;
+  margin: 48px auto;
 }
 
 .layout {
@@ -57,7 +51,7 @@ a {
 }
 
 .container.post-wrapper {
-  max-width: 85%;
+  max-width: 82%;
   width: 800px;
 }
 

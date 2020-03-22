@@ -13,7 +13,7 @@ const BlogList = ({ blogList }) => {
       <div className="absolute right-0 mr-4 mt-2 md:mr-6">
         <ThemeToggle />
       </div>
-      <div className="flex flex-col items-center self-center px-4 mt-20 md:mt-40 mx-auto mb-8 max-w-md">
+      <div className="flex flex-col items-center self-center px-4 mt-20 md:mt-28 mx-auto mb-8 max-w-md">
         <img
           src="/images/avatar.jpg"
           alt="Avatar of Anthony Oyathelemhi"

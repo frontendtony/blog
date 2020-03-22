@@ -42,7 +42,7 @@ const Post = ({
             }
           }}
         />
-        <h1 className="mb-0">{title}</h1>
+        <h1 className="mb-4">{title}</h1>
         <p className="mb-10 mt-0 text-sm text-primary">
           {formatDate(date)} - {estimatedReadingTime}
         </p>
@@ -69,9 +69,9 @@ Post.getInitialProps = async ({ query }) => {
     estimatedReadingTime: readingTime(document.content).text,
     content: document.content,
     publishDate: document.publishDate,
-    tags: document.tags || [],
+    tags: document.data.tags || [],
     slug: query.post,
-    summary: document.summary,
+    summary: document.data.summary,
     siteMetadata
   };
 };
