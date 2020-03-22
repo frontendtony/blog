@@ -21,7 +21,7 @@ const Post = ({
   return (
     <>
       <Navbar />
-      <main className="container mx-auto my-4 md:my-10 p-6 md:px-8 bg-secondary post-wrapper">
+      <main className="container mx-auto p-6 md:px-8 bg-secondary post-wrapper">
         <Head>
           <title>{`${title} - ${siteMetadata.title}`}</title>
         </Head>

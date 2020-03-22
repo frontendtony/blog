@@ -53,7 +53,7 @@ const BlogList = ({ blogList }) => {
           </a>
         </div>
       </div>
-      <ul className="mb-4 max-w-3xl mx-auto list-none p-0">
+      <ul className="max-w-3xl mx-auto list-none p-0">
         {blogList.map(blog => (
           <li className="mb-4 md:mb-12 p-6 md:p-12 bg-secondary shadow-md" key={blog.title}>
             <Link href="/[post]" as={`/${blog.slug}`}>

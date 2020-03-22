@@ -4,7 +4,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="min-h-screen layout flex flex-col">
       {children}
-      <div className="bg-secondary py-2 text-center mt-auto">
+      <div className="bg-secondary py-2 text-center justify-self-end mt-10">
         <p>
           <span className="italic">All articles written by</span>
           <a href="https://oghie.dev" className="ml-2">

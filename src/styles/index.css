@@ -27,6 +27,13 @@ a {
   color: inherit;
 }
 
+@media (max-width: 767px) {
+  pre {
+    margin: 0 -1.5rem !important;
+    border-radius: 0 !important;
+  }
+}
+
 .post-container h1,
 .post-container h2,
 .post-container h3,
