@@ -28,9 +28,9 @@ const Post = ({
         <NextSeo
           title={title}
           description={summary}
-          canonical={`https://blog.oghie.dev/${slug}`}
+          canonical={`https://www.frontendtony.com/${slug}`}
           openGraph={{
-            url: `https://blog.oghie.dev/${slug}`,
+            url: `https://www.frontendtony.com/${slug}`,
             title: title,
             description: summary,
             type: 'article',
