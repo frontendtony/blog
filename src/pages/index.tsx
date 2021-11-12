@@ -22,11 +22,16 @@ const BlogList = ({ blogList }: { blogList: Blog[] }) => {
         <ThemeToggle />
       </div>
       <div className="flex flex-col items-center self-center px-4 mt-20 md:mt-28 mx-auto mb-8 max-w-md">
-        <Image src={avatarUrl} alt="Avatar of Anthony Oyathelemhi" className="rounded-full mr-4" />
-        <p className="text-center text-3xl font-bold mb-4">Anthony Oyathelemhi</p>
+        <Image
+          src={avatarUrl}
+          alt="Avatar of Anthony Oyathelemhi"
+          className="rounded-full mr-4"
+          width={160}
+          height={160}
+        />
+        <p className="text-center text-3xl font-bold leading-none mt-4">Anthony Oyathelemhi</p>
         <p className="text-center text-lg my-2 opacity-75">
-          Hi, I'm a frontend developer based in Lagos, Nigeria <br />I build fast, scalable, secure,
-          and accessible web apps for a living
+          Sofware Engineer, Master of all thing Frontend
         </p>
         <div className="flex items-center mt-4">
           <a

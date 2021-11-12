@@ -45,28 +45,28 @@ const Post = ({
 }: Props) => {
   return (
     <>
+      <Head>
+        <title>{`${title} - Anthony Oyathelemhi`}</title>
+      </Head>
+      <NextSeo
+        title={title}
+        description={summary}
+        canonical={`https://www.frontendtony.com/${slug}`}
+        openGraph={{
+          url: `https://www.frontendtony.com/${slug}`,
+          title: title,
+          description: summary,
+          type: 'article',
+          article: {
+            publishedTime: date,
+            modifiedTime: publishDate,
+            tags: tags,
+            authors: ['Anthony Oyathelemhi'],
+          },
+        }}
+      />
       <Navbar />
       <main className="container mx-auto p-6 md:px-8 bg-secondary post-wrapper">
-        <Head>
-          <title>{`${title} - Anthony Oyathelemhi`}</title>
-        </Head>
-        <NextSeo
-          title={title}
-          description={summary}
-          canonical={`https://www.frontendtony.com/${slug}`}
-          openGraph={{
-            url: `https://www.frontendtony.com/${slug}`,
-            title: title,
-            description: summary,
-            type: 'article',
-            article: {
-              publishedTime: date,
-              modifiedTime: publishDate,
-              tags: tags,
-              authors: ['Anthony Oyathelemhi'],
-            },
-          }}
-        />
         <h1 className="mb-4">{title}</h1>
         <p className="mb-10 mt-0 text-sm text-primary">
           {formatDate(date)} - {estimatedReadingTime}
