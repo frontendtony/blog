@@ -7,7 +7,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <div className="bg-secondary py-2 text-center justify-self-end mt-10">
         <p>
           <span className="italic">All articles written by</span>
-          <a href="https://oghie.dev" className="ml-2">
+          <a href="https://frontendtony.com" className="ml-2">
             Anthony Oyathelemhi
           </a>
         </p>
@@ -16,7 +16,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           <a href="https://github.com/frontendtony" className="mx-4">
             Github
           </a>
-          <a href="#">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/tonerolima/">LinkedIn</a>
         </div>
       </div>
     </div>
