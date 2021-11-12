@@ -83,7 +83,7 @@ const Post = ({
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const markdown = await import(`../content/posts/${params?.['post']}.md`);
+  const markdown = await import(`../content/posts/${params?.['post']}`);
 
   const document = matter(markdown.default);
 
