@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +7,15 @@ import avatarUrl from '../../public/images/avatar.png';
 import ThemeToggle from '../components/ThemeToggle';
 import { formatDate, orderPosts } from '../utils/blogHelpers';
 
-const BlogList = ({ blogList }) => {
+type Blog = {
+  title: string;
+  slug: string;
+  date: string;
+  estimatedReadingTime: string;
+  summary: string;
+};
+
+const BlogList = ({ blogList }: { blogList: Blog[] }) => {
   return (
     <>
       <div className="absolute right-0 mr-4 mt-2 md:mr-6">
@@ -68,7 +74,7 @@ const BlogList = ({ blogList }) => {
   );
 };
 
-const Home = ({ allBlogs }) => {
+const Home = ({ allBlogs }: { allBlogs: Blog[] }) => {
   return (
     <main className="container mx-auto p-2 md:px-8">
       <BlogList blogList={allBlogs} />
@@ -77,13 +83,12 @@ const Home = ({ allBlogs }) => {
 };
 
 Home.getInitialProps = async () => {
-  const siteMetadata = await import(`../content/siteMetadata.json`);
   // get all .md files from the src/posts dir
   const posts = (context => {
     // grab all the files matching this context
     const keys = context.keys();
     // grab the values from these files
-    const values = keys.map(context);
+    const values = keys.map<{ default: string }>(context);
     // go through each file
     const data = keys.map((key: string, index: number) => {
       // Create slug from filename
@@ -111,7 +116,6 @@ Home.getInitialProps = async () => {
 
   return {
     allBlogs: posts,
-    ...siteMetadata.default,
   };
 };
 
