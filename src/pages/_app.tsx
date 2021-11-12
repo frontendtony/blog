@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           },
           images: [
             {
-              url: '/images/opengrapgh.jpg',
+              url: '/images/opengraph.jpg',
               alt: 'Anthony Oyathelemhi, Software Engineer',
               width: 1200,
               height: 627,
