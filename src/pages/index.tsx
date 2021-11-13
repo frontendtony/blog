@@ -6,6 +6,9 @@ import path from 'path';
 import React from 'react';
 import readingTime from 'reading-time';
 import avatarUrl from '../../public/images/avatar.png';
+import githubImageUrl from '../../public/images/github.png';
+import linkedInImageUrl from '../../public/images/linkedin.png';
+import twitterImageUrl from '../../public/images/twitter.png';
 import ThemeToggle from '../components/ThemeToggle';
 import { formatDate, orderPosts } from '../utils/blogHelpers';
 
@@ -42,7 +45,7 @@ const Home = ({ allBlogs }: { allBlogs: Blog[] }) => {
             rel="noopener noreferrer"
             className="mx-3"
           >
-            <img src="/images/twitter.png" alt="Twitter logo" />
+            <Image src={twitterImageUrl} alt="Twitter logo" />
           </a>
           <a
             href="http://github.com/frontendtony"
@@ -50,7 +53,7 @@ const Home = ({ allBlogs }: { allBlogs: Blog[] }) => {
             rel="noopener noreferrer"
             className="mx-3"
           >
-            <img src="/images/github.png" alt="Github logo" />
+            <Image src={githubImageUrl} alt="Github logo" />
           </a>
           <a
             href="https://www.linkedin.com/in/tonerolima/"
@@ -58,7 +61,7 @@ const Home = ({ allBlogs }: { allBlogs: Blog[] }) => {
             rel="noopener noreferrer"
             className="mx-3"
           >
-            <img src="/images/linkedin.png" alt="Linkedin logo" />
+            <Image src={linkedInImageUrl} alt="Linkedin logo" />
           </a>
         </div>
       </div>
