@@ -49,10 +49,11 @@ const Post = ({
         <title>{`${title} - Anthony Oyathelemhi`}</title>
       </Head>
       <NextSeo
+        title={title}
+        description={summary}
         canonical={`https://www.frontendtony.com/${slug}`}
         openGraph={{
           url: `https://www.frontendtony.com/${slug}`,
-          locale: 'en_US',
           title: title,
           description: summary,
           type: 'article',
@@ -62,11 +63,6 @@ const Post = ({
             tags: tags,
             authors: ['Anthony Oyathelemhi'],
           },
-        }}
-        twitter={{
-          handle: '@frontendtony',
-          site: '@frontendtony',
-          cardType: 'summary_large_image',
         }}
       />
       <Navbar />
