@@ -1,6 +1,8 @@
+import { promises as fs } from 'fs';
 import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
+import path from 'path';
 import React from 'react';
 import readingTime from 'reading-time';
 import avatarUrl from '../../public/images/avatar.png';
@@ -15,9 +17,9 @@ type Blog = {
   summary: string;
 };
 
-const BlogList = ({ blogList }: { blogList: Blog[] }) => {
+const Home = ({ allBlogs }: { allBlogs: Blog[] }) => {
   return (
-    <>
+    <main className="container mx-auto p-2 md:px-8">
       <div className="absolute right-0 mr-4 mt-2 md:mr-6">
         <ThemeToggle />
       </div>
@@ -61,7 +63,7 @@ const BlogList = ({ blogList }: { blogList: Blog[] }) => {
         </div>
       </div>
       <ul className="max-w-3xl mx-auto list-none p-0">
-        {blogList.map(blog => (
+        {allBlogs.map(blog => (
           <li className="mb-4 md:mb-12 p-6 md:p-12 bg-secondary shadow-md" key={blog.title}>
             <Link href="/[post]" as={`/${blog.slug}`}>
               <a className="no-underline">
@@ -75,52 +77,35 @@ const BlogList = ({ blogList }: { blogList: Blog[] }) => {
           </li>
         ))}
       </ul>
-    </>
-  );
-};
-
-const Home = ({ allBlogs }: { allBlogs: Blog[] }) => {
-  return (
-    <main className="container mx-auto p-2 md:px-8">
-      <BlogList blogList={allBlogs} />
     </main>
   );
 };
 
-Home.getInitialProps = async () => {
-  // get all .md files from the src/posts dir
-  const posts = (context => {
-    // grab all the files matching this context
-    const keys = context.keys();
-    // grab the values from these files
-    const values = keys.map<{ default: string }>(context);
-    // go through each file
-    const data = keys.map((key: string, index: number) => {
-      // Create slug from filename
-      const slug = key
-        .replace(/^.*[\\\/]/, '')
-        .split('.')
-        .slice(0, -1)
-        .join('.');
-      // get the current file value
-      const value = values[index];
-      // Parse frontmatter & markdownbody for the current file
-      const document = matter(value.default);
+export const getStaticProps = async () => {
+  // get all posts
+  const postsDirectory = path.join(process.cwd(), 'src/content/posts');
+  const files = await fs.readdir(postsDirectory);
+
+  const posts = await Promise.all(
+    files.map(async file => {
+      const markdown = await fs.readFile(path.join(process.cwd(), `src/content/posts/${file}`));
+
+      const document = matter(markdown);
       // return the .md content & pretty slug
       return {
         title: document.data.title,
         date: document.data.date,
         summary: document.data.summary,
         estimatedReadingTime: readingTime(document.content).text,
-        slug,
+        slug: file.split('.')[0],
       };
-    });
-    // return all the posts
-    return orderPosts(data);
-  })(require.context('../content/posts', true, /\.md$/));
+    })
+  );
 
   return {
-    allBlogs: posts,
+    props: {
+      allBlogs: orderPosts(posts),
+    },
   };
 };
 
