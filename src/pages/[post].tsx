@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs';
 import matter from 'gray-matter';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import path from 'path';
@@ -86,10 +86,16 @@ const Post = ({
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const markdown = await fs.readFile(
-    path.join(process.cwd(), `src/content/posts/${params?.['post']}.md`)
+    path.join(process.cwd(), `src/content/posts/${query?.['post']}.md`)
   );
+
+  if (!markdown) {
+    return {
+      notFound: true,
+    };
+  }
 
   const document = matter(markdown);
 
@@ -102,24 +108,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       // @ts-ignore
       publishDate: document.publishDate || null,
       tags: document.data.tags || [],
-      slug: params?.['post'],
+      slug: query?.['post'],
       summary: document.data.summary,
     },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const postsDirectory = path.join(process.cwd(), 'src/content/posts');
-  const filenames = await fs.readdir(postsDirectory);
-
-  // Get the paths we want to pre-render based on posts
-  const paths = filenames.map(slug => ({
-    params: { post: slug.split('.')[0] },
-  }));
-
-  return {
-    paths,
-    fallback: false,
   };
 };
 

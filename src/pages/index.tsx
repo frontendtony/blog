@@ -115,7 +115,7 @@ const Home = ({ allBlogs }: { allBlogs: Blog[] }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   // get all posts
   const postsDirectory = path.join(process.cwd(), 'src/content/posts');
   const files = await fs.readdir(postsDirectory);
