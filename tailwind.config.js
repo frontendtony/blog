@@ -1,12 +1,14 @@
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
+  mode: 'jit',
+  purge: ['./src/pages/**/*.[tsx]', './src/components/**/*.[tsx]'],
   theme: {
     extend: {
       spacing: {
-        '72': '18rem',
-        '84': '21rem',
-        '96': '24rem',
+        72: '18rem',
+        84: '21rem',
+        96: '24rem',
       },
       screens: {
         '2xl': '1536px',
@@ -20,7 +22,7 @@ module.exports = {
     container: false,
   },
   plugins: [
-    plugin(function({ addUtilities }) {
+    plugin(function ({ addUtilities }) {
       const newUtilities = {
         '.justify-self-start': {
           'justify-self': 'flex-start',
