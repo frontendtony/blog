@@ -45,15 +45,13 @@ const Post = ({
 }: Props) => {
   return (
     <>
-      <Head>
-        <title>{`${title} - Anthony Oyathelemhi`}</title>
-      </Head>
       <NextSeo
         title={title}
+        titleTemplate="%s - Anthony Oyathelemhi"
         description={summary}
-        canonical={`https://www.frontendtony.com/${slug}`}
+        canonical={`https://frontendtony.com/${slug}`}
         openGraph={{
-          url: `https://www.frontendtony.com/${slug}`,
+          url: `https://frontendtony.com/${slug}`,
           title: title,
           description: summary,
           type: 'article',
@@ -61,10 +59,14 @@ const Post = ({
             publishedTime: date,
             modifiedTime: publishDate,
             tags: tags,
+            section: tags[0],
             authors: ['Anthony Oyathelemhi'],
           },
         }}
       />
+      <Head>
+        <title>{`${title} - Anthony Oyathelemhi`}</title>
+      </Head>
       <Navbar />
       <main className="container mx-auto p-6 md:px-8 bg-secondary post-wrapper">
         <h1 className="mb-4">{title}</h1>
