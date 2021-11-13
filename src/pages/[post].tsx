@@ -83,9 +83,11 @@ const Post = ({
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const markdown = await import(`../content/posts/${params?.['post']}`);
+  const markdown = await fs.readFile(
+    path.join(process.cwd(), `src/content/posts/${params?.['post']}.md`)
+  );
 
-  const document = matter(markdown.default);
+  const document = matter(markdown);
 
   return {
     props: {
@@ -108,12 +110,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   // Get the paths we want to pre-render based on posts
   const paths = filenames.map(slug => ({
-    params: { post: slug },
+    params: { post: slug.split('.')[0] },
   }));
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 
