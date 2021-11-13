@@ -9,6 +9,7 @@
   font-style: normal;
   font-weight: normal;
   src: local('SF Pro Regular'), url('./fonts/SF-Pro-Text-Regular.woff');
+  font-display: swap;
 }
 
 html {
