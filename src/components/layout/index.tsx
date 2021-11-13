@@ -5,18 +5,22 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <div className="min-h-screen layout flex flex-col">
       {children}
       <div className="bg-secondary py-2 text-center justify-self-end mt-10">
-        <p>
+        <p className="mt-4">
           <span className="italic">All articles written by</span>
-          <a href="https://frontendtony.com" className="ml-2">
+          <a href="https://frontendtony.com" className="ml-2 p-4">
             Anthony Oyathelemhi
           </a>
         </p>
-        <div className="flex justify-center mb-4">
-          <a href="https://twitter.com/frontendtony">Twitter</a>
-          <a href="https://github.com/frontendtony" className="mx-4">
+        <div className="flex justify-center my-4">
+          <a href="https://twitter.com/frontendtony" className="p-2">
+            Twitter
+          </a>
+          <a href="https://github.com/frontendtony" className="mx-4 p-2">
             Github
           </a>
-          <a href="https://www.linkedin.com/in/tonerolima/">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/tonerolima/" className="p-2">
+            LinkedIn
+          </a>
         </div>
       </div>
     </div>
