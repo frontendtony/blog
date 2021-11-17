@@ -29,7 +29,7 @@ const Home = ({ allBlogs }: { allBlogs: Blog[] }) => {
         />
         <p className="text-center text-3xl font-bold leading-none mt-4 mb-0">Anthony Oyathelemhi</p>
         <p className="text-center text-lg mt-2 opacity-75">
-          Sofware Engineer, Master of all thing Frontend
+          Software Engineer, Master of all things Frontend
         </p>
       </div>
       <ul className="max-w-3xl mx-auto list-none p-0 space-y-12 mt-8">
