@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="min-h-screen layout flex flex-col">
+    <div className="min-h-screen layout flex flex-col max-w-2xl py-8 px-5 mx-auto">
       {children}
       <div className="bg-secondary py-2 text-center justify-self-end mt-10">
         <p className="mt-4">

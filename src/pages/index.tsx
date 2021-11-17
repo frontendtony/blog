@@ -6,10 +6,6 @@ import path from 'path';
 import React from 'react';
 import readingTime from 'reading-time';
 import avatarUrl from '../../public/images/avatar.png';
-import githubImageUrl from '../../public/images/github.png';
-import linkedInImageUrl from '../../public/images/linkedin.png';
-import twitterImageUrl from '../../public/images/twitter.png';
-import ThemeToggle from '../components/ThemeToggle';
 import { formatDate, orderPosts } from '../utils/blogHelpers';
 
 type Blog = {
@@ -22,11 +18,8 @@ type Blog = {
 
 const Home = ({ allBlogs }: { allBlogs: Blog[] }) => {
   return (
-    <main className="container mx-auto p-2 md:px-8">
-      <div className="absolute right-0 mr-4 mt-2 md:mr-6">
-        <ThemeToggle />
-      </div>
-      <div className="flex flex-col items-center self-center px-4 mt-20 md:mt-28 mx-auto mb-8 max-w-md">
+    <main>
+      <div className="flex flex-col items-center self-center px-4 mt-20 md:mt-28 mx-auto max-w-md">
         <Image
           src={avatarUrl}
           alt="Avatar of Anthony Oyathelemhi"
@@ -34,43 +27,17 @@ const Home = ({ allBlogs }: { allBlogs: Blog[] }) => {
           width={160}
           height={160}
         />
-        <p className="text-center text-3xl font-bold leading-none mt-4">Anthony Oyathelemhi</p>
-        <p className="text-center text-lg my-2 opacity-75">
+        <p className="text-center text-3xl font-bold leading-none mt-4 mb-0">Anthony Oyathelemhi</p>
+        <p className="text-center text-lg mt-2 opacity-75">
           Sofware Engineer, Master of all thing Frontend
         </p>
-        <div className="flex items-center mt-4">
-          <a
-            href="http://twitter.com/frontendtony"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mx-3"
-          >
-            <Image src={twitterImageUrl} alt="Twitter logo" />
-          </a>
-          <a
-            href="http://github.com/frontendtony"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mx-3"
-          >
-            <Image src={githubImageUrl} alt="Github logo" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/tonerolima/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mx-3"
-          >
-            <Image src={linkedInImageUrl} alt="Linkedin logo" />
-          </a>
-        </div>
       </div>
-      <ul className="max-w-3xl mx-auto list-none p-0">
+      <ul className="max-w-3xl mx-auto list-none p-0 space-y-12 mt-8">
         {allBlogs.map(blog => (
-          <li className="mb-4 md:mb-12 p-6 md:p-12 bg-secondary shadow-md" key={blog.title}>
+          <li className="" key={blog.title}>
             <Link href="/[post]" as={`/${blog.slug}`}>
               <a className="no-underline">
-                <h1 className="m-0 mb-2 text-2xl md:text-3xl">{blog.title}</h1>
+                <h1 className="m-0 mb-2 text-3xl">{blog.title}</h1>
                 <p className="mb-0 md:mb-8 mt-0 text-sm text-primary">
                   {formatDate(blog.date)} - {blog.estimatedReadingTime}
                 </p>

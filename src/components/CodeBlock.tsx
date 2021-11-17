@@ -10,7 +10,7 @@ const CodeBlock = (props: Props) => {
   const { language = 'javascript', value } = props;
 
   return (
-    <SyntaxHighlighter language={language} style={atomDark} showLineNumbers>
+    <SyntaxHighlighter language={language} style={atomDark}>
       {value}
     </SyntaxHighlighter>
   );
